@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "baseUrl": "./cypress",
+    "paths": {
+      "@helpers/*": ["helpers/*"],         
+      "@pageObject/*": ["pageObject/*"],   
+      "@support/*": ["support/*"] ,
+      "@pages/*": ["pages/*"] ,
+     
+    },
+   
+    
+    // "strict": true,
+    "types": ["cypress", "node","@cypress/grep"]
+  },
+  "include": ["**/*.ts", "index.js", "index.js",],
+  
+}

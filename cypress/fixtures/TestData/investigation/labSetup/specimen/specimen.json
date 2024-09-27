@@ -1,0 +1,22 @@
+{
+  "name": {
+    "type": "input",
+    "value": "1727395894329 Specimen"
+  },
+  "abbreviation": {
+    "type": "input",
+    "value": "STPVE"
+  },
+  "description": {
+    "value": "Conturbo synagoga solvo capillus censura viriliter angustus.",
+    "type": "textarea"
+  },
+  "active": {
+    "value": true,
+    "type": "switch"
+  },
+  "prefix": {
+    "type": "input",
+    "value": "WLOON"
+  }
+}

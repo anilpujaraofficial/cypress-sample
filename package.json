@@ -1,0 +1,43 @@
+{
+  "name": "hmis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "cy:node": "node -v",
+    "cy:verify": "npx cypress verify",
+    "start": "yarn && npx cypress open",
+    "cy:run": "yarn && npx cypress open",
+    "cy:clean:saveData": "rm -rf cypress/fixtures/TestData",
+    "cy:clean:report": "rm -rf ./report && mkdir ./report && mkdir ./report/mochareports && rm -rf cypress/screenshots && rm -rf cypress/videos",
+    "pretest": "npm run cy:clean:saveData && npm run cy:clean:report",
+    "cy:combine:report": "npx mochawesome-merge ./report/mocha/*.json -o ./report/mochareports/report.json",
+    "cy:generate:report": "npx marge ./report/mochareports/report.json  -o ./report/mochareports",
+    "cy:cloud:io": "npx cypress run --record --key da6877e1-a5c8-457b-a189-2a9b4c478e49 --parallel --group regression_testing --ci-build-id $BUILD_IDS",
+    "cy:flow:test": "npx cypress run --env grepTags=@flowTest",
+    "posttest": "npm run cy:combine:report && npm run cy:generate:report",
+    "e2e": "npx cypress run --env grepTags=@login",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "cypress": "^13.14.2",
+    "dotenv": "^16.4.5",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0",
+    "moment": "^2.30.1"
+  },
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.2.5",
+    "@cypress/grep": "^4.0.0",
+    "@faker-js/faker": "^8.0.2",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-iframe": "^1.0.1",
+    "husky": "^9.0.11",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
+    "typescript": "^5.4.5"
+  }
+}
